@@ -3,9 +3,35 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{53E16736-2DDF-4F81-8229-85C8CCCB624B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{82AF3E13-4A05-43A9-A12E-23E439B494E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RocketMan.Core", "src\RocketMan.Core\RocketMan.Core.csproj", "{22C75068-B309-4750-B92F-39CDDCA4A886}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RocketMan.Core.Tests", "test\RocketMan.Core.Tests\RocketMan.Core.Tests.csproj", "{AAE0995B-2502-4C94-B8FB-80513F489A56}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{22C75068-B309-4750-B92F-39CDDCA4A886}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22C75068-B309-4750-B92F-39CDDCA4A886}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22C75068-B309-4750-B92F-39CDDCA4A886}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22C75068-B309-4750-B92F-39CDDCA4A886}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAE0995B-2502-4C94-B8FB-80513F489A56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAE0995B-2502-4C94-B8FB-80513F489A56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAE0995B-2502-4C94-B8FB-80513F489A56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAE0995B-2502-4C94-B8FB-80513F489A56}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{22C75068-B309-4750-B92F-39CDDCA4A886} = {53E16736-2DDF-4F81-8229-85C8CCCB624B}
+		{AAE0995B-2502-4C94-B8FB-80513F489A56} = {82AF3E13-4A05-43A9-A12E-23E439B494E1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DAC4AD2D-9B15-42C1-8F36-5F6EAF68F101}
