@@ -1,0 +1,29 @@
+﻿@page
+@model RocketMan.Web.Pages.Launch.Upcoming.IndexModel
+@{
+}
+
+
+<h1>Upcoming List</h1>
+
+<table class="table table-hover">
+    <thead>
+    <tr>
+        @*<th scope="col">Id</th>*@
+        <th scope="col">Mission name</th>
+        <th scope="col">Launch date</th>
+        <th scope="col">Launchpad</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var launch in Model.UpcomingList)
+    {
+        <tr>
+            @*<th scope="row">@launch.Id</th>*@
+            <td>@launch.MissionName</td>
+            <td>@launch.LaunchDate.ToString("R")</td>
+            <td>@launch.Launchpad</td>
+        </tr>
+    }
+    </tbody>
+</table>

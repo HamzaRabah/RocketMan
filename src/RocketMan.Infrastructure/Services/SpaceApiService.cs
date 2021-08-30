@@ -50,7 +50,6 @@ namespace RocketMan.Infrastructure.Services
                     var content = await StreamToStringAsync(errorStream);
                     throw new ExtendedHttpRequestException(response.StatusCode, content);
                 }
-
                 var stream = await response.Content.ReadAsStreamAsync();
                 var result = DeserializeJsonFromStream<TResult>(stream);
                 return result;

@@ -11,9 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RocketMan.Core", "src\Rocke
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RocketMan.Core.Tests", "test\RocketMan.Core.Tests\RocketMan.Core.Tests.csproj", "{AAE0995B-2502-4C94-B8FB-80513F489A56}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RocketMan.Application", "src\RocketMan.Application\RocketMan.Application.csproj", "{7A642674-2AEF-4977-90C2-C0D36623C4F1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RocketMan.Application", "src\RocketMan.Application\RocketMan.Application.csproj", "{7A642674-2AEF-4977-90C2-C0D36623C4F1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RocketMan.Infrastructure", "src\RocketMan.Infrastructure\RocketMan.Infrastructure.csproj", "{3A3449FB-6C44-49DB-AE9E-449397B0DA5E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RocketMan.Infrastructure", "src\RocketMan.Infrastructure\RocketMan.Infrastructure.csproj", "{3A3449FB-6C44-49DB-AE9E-449397B0DA5E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RocketMan.Web", "src\RocketMan.Web\RocketMan.Web.csproj", "{DCDC1470-D25C-48DA-9C29-28053B5B9438}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +39,10 @@ Global
 		{3A3449FB-6C44-49DB-AE9E-449397B0DA5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A3449FB-6C44-49DB-AE9E-449397B0DA5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A3449FB-6C44-49DB-AE9E-449397B0DA5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCDC1470-D25C-48DA-9C29-28053B5B9438}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCDC1470-D25C-48DA-9C29-28053B5B9438}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCDC1470-D25C-48DA-9C29-28053B5B9438}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCDC1470-D25C-48DA-9C29-28053B5B9438}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,6 +52,7 @@ Global
 		{AAE0995B-2502-4C94-B8FB-80513F489A56} = {82AF3E13-4A05-43A9-A12E-23E439B494E1}
 		{7A642674-2AEF-4977-90C2-C0D36623C4F1} = {53E16736-2DDF-4F81-8229-85C8CCCB624B}
 		{3A3449FB-6C44-49DB-AE9E-449397B0DA5E} = {53E16736-2DDF-4F81-8229-85C8CCCB624B}
+		{DCDC1470-D25C-48DA-9C29-28053B5B9438} = {53E16736-2DDF-4F81-8229-85C8CCCB624B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DAC4AD2D-9B15-42C1-8F36-5F6EAF68F101}
