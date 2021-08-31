@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RocketMan.Application", "sr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RocketMan.Infrastructure", "src\RocketMan.Infrastructure\RocketMan.Infrastructure.csproj", "{3A3449FB-6C44-49DB-AE9E-449397B0DA5E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RocketMan.Web", "src\RocketMan.Web\RocketMan.Web.csproj", "{DCDC1470-D25C-48DA-9C29-28053B5B9438}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RocketMan.Web", "src\RocketMan.Web\RocketMan.Web.csproj", "{DCDC1470-D25C-48DA-9C29-28053B5B9438}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

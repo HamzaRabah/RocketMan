@@ -27,6 +27,8 @@ namespace RocketMan.Infrastructure.Services
         public async Task<Launch> GetNextLaunch()
         {
             var result = await SendGetRequest<LaunchDto>("launches/next?id=true");
+            //Workaround the date of launch is already in the past
+            result.LaunchDateUnix += 30072000;
             return _createLaunchFromDto(result);
         }
 
@@ -50,6 +52,7 @@ namespace RocketMan.Infrastructure.Services
                     var content = await StreamToStringAsync(errorStream);
                     throw new ExtendedHttpRequestException(response.StatusCode, content);
                 }
+
                 var stream = await response.Content.ReadAsStreamAsync();
                 var result = DeserializeJsonFromStream<TResult>(stream);
                 return result;

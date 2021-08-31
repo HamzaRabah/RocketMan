@@ -1,0 +1,32 @@
+﻿@page
+@model RocketMan.Web.Pages.Launch.Next.IndexModel
+@{
+    
+}
+
+<h1>Next Launch</h1>
+<h3>Mission: @Model.NextLaunch.MissionName</h3>
+<h3>Launchpad: @Model.NextLaunch.Launchpad</h3>
+<h3>Launch date: @Model.NextLaunch.LaunchDate.ToString("R")</h3>
+<div id="flipdown" class="flipdown"></div>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+
+
+        // Unix timestamp (in seconds) to count down to
+        var twoDaysFromNow = @Model.NextLaunch.LaunchDate.ToUnixTimeSeconds();
+
+        // Set up FlipDown
+        var flipdown = new FlipDown(twoDaysFromNow)
+
+            // Start the countdown
+            .start()
+
+            // Do something when the countdown ends
+            .ifEnded(() => {
+                console.log('The countdown has ended!');
+            });
+    });
+</script>
