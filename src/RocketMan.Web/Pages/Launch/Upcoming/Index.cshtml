@@ -1,4 +1,5 @@
 ﻿@page
+@using System.Diagnostics.Eventing.Reader
 @model RocketMan.Web.Pages.Launch.Upcoming.IndexModel
 @{
     ViewData["Title"] = "Upcoming Launches";
@@ -6,16 +7,19 @@
 
 
 <h1>Upcoming Launches</h1>
-<table class="table table-hover">
-    <thead>
+<form method="post">
+
+    <table class="table table-hover">
+        <thead>
         <tr>
             @*<th scope="col">Id</th>*@
             <th scope="col">Mission name</th>
             <th scope="col">Launch date</th>
             <th scope="col">Launchpad</th>
+            <th scope="col"></th>
         </tr>
-    </thead>
-    <tbody>
+        </thead>
+        <tbody>
         @foreach (var launch in Model.UpcomingList)
         {
             <tr>
@@ -23,7 +27,24 @@
                 <td>@launch.MissionName</td>
                 <td>@launch.LaunchDate.ToString("R")</td>
                 <td>@launch.Launchpad</td>
+                <td>
+                    @if (@launch.IsFavorite)
+                    {
+                        <button type="submit" class="btn btn-danger" asp-page-handler="RemoveFavorite"
+                                asp-route-id="@launch.Id">
+                            Remove from favorite
+                        </button>
+                    }
+                    else
+                    {
+                        <button type="submit" class="btn btn-primary" asp-page-handler="AddFavorite"
+                                asp-route-id="@launch.Id">
+                            Add to favorite
+                        </button>
+                    }
+                </td>
             </tr>
         }
-    </tbody>
-</table>
+        </tbody>
+    </table>
+</form>

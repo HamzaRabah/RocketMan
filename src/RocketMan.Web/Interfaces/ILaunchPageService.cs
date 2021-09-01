@@ -8,5 +8,7 @@ namespace RocketMan.Web.Interfaces
     {
         Task<IEnumerable<LaunchViewModel>> GetUpcomingLaunches();
         Task<LaunchViewModel> GetNextLaunch();
+        Task AddToFavorite(string launchId);
+        Task RemoveFromFavorite(string launchId);
     }
 }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -23,6 +24,17 @@ namespace RocketMan.Web.Pages.Launch.Upcoming
         {
             UpcomingList = await _launchPageService.GetUpcomingLaunches();
             return Page();
+        }
+
+        public async Task<IActionResult> OnPostAddFavoriteAsync(string id)
+        {
+            await _launchPageService.AddToFavorite(id);
+            return RedirectToPage();
+        }
+        public async Task<IActionResult> OnPostRemoveFavoriteAsync(string id)
+        {
+            await _launchPageService.RemoveFromFavorite(id);
+            return RedirectToPage();
         }
     }
 }

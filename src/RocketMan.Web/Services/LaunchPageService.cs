@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.Extensions.Logging;
 using RocketMan.Application.Interfaces;
+using RocketMan.Application.Models;
 using RocketMan.Web.Interfaces;
 using RocketMan.Web.ViewModels;
 
@@ -32,6 +34,20 @@ namespace RocketMan.Web.Services
         {
             var next = await _launchAppService.GetNextLaunch();
             return _mapper.Map<LaunchViewModel>(next);
+        }
+
+        public async Task AddToFavorite(string launchId)
+        {
+            var launch = (await GetUpcomingLaunches()).FirstOrDefault(model => model.Id == launchId);
+            var launchToAdd = _mapper.Map<LaunchModel>(launch);
+            var added = await _launchAppService.AddToFavorite(launchToAdd);
+        }
+
+        public async Task RemoveFromFavorite(string launchId)
+        {
+            var launch = (await GetUpcomingLaunches()).FirstOrDefault(model => model.Id == launchId);
+            var launchToRemove = _mapper.Map<LaunchModel>(launch);
+            await _launchAppService.RemoveFromFavorite(launchToRemove);
         }
     }
 }

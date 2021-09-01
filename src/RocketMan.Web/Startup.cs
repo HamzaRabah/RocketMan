@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -7,7 +8,12 @@ using RocketMan.Application.Interfaces;
 using RocketMan.Application.Services;
 using RocketMan.Core.Configurations;
 using RocketMan.Core.Interfaces;
+using RocketMan.Core.Repositories;
+using RocketMan.Core.Repositories.Base;
+using RocketMan.Infrastructure.Data;
 using RocketMan.Infrastructure.Logging;
+using RocketMan.Infrastructure.Repositories;
+using RocketMan.Infrastructure.Repositories.Base;
 using RocketMan.Infrastructure.Services;
 using RocketMan.Web.Interfaces;
 using RocketMan.Web.Services;
@@ -66,7 +72,10 @@ namespace RocketMan.Web
             services.Configure<RocketManSettings>(Configuration);
 
             // Add Infrastructure Layer
+            ConfigureDatabases(services);
             services.AddScoped<ISpaceApiService, SpaceApiService>();
+            services.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
+            services.AddScoped<ILaunchRepository, LaunchRepository>();
             services.AddScoped(typeof(IApplicationLogger<>), typeof(ApplicationLogger<>));
 
             // Add Application Layer
@@ -75,6 +84,14 @@ namespace RocketMan.Web
             // Add Web Layer
             services.AddAutoMapper(typeof(Startup)); // Add AutoMapper
             services.AddScoped<ILaunchPageService, LaunchPageService>();
+        }
+        public void ConfigureDatabases(IServiceCollection services)
+        {
+            // use in-memory database
+            services.AddDbContext<RocketManDbContext>(c =>
+                c.UseInMemoryDatabase("RocketManDB"));
+
+            //// use real database
         }
     }
 }
