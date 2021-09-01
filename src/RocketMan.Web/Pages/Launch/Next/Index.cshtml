@@ -1,14 +1,35 @@
 ﻿@page
 @model RocketMan.Web.Pages.Launch.Next.IndexModel
 @{
-    
-}
 
-<h1>Next Launch</h1>
-<h3>Mission: @Model.NextLaunch.MissionName</h3>
-<h3>Launchpad: @Model.NextLaunch.Launchpad</h3>
-<h3>Launch date: @Model.NextLaunch.LaunchDate.ToString("R")</h3>
-<div id="flipdown" class="flipdown"></div>
+}
+<style type="text/css">
+    .socialsharing a {
+        text-align: center;
+        display: inline-block;
+        padding: .7em;
+        line-height: 0;
+        margin-bottom: 2em;
+    }
+
+    .socialsharing path { fill: gray; }
+
+    .socialsharing svg {
+        width: 24px;
+        height: 24px;
+    }
+</style>
+<div class="container-fluid">
+
+    <h1>Next Launch</h1>
+    <hr class="my-4">
+    <h3>Mission: @Model.NextLaunch.MissionName</h3>
+    <h3>Launchpad: @Model.NextLaunch.Launchpad</h3>
+    <h3>Launch date: @Model.NextLaunch.LaunchDate.ToString("R")</h3>
+    <div id="flipdown" class="flipdown"></div>
+
+    @{ await Html.RenderPartialAsync("Shared/_SocialSharing", ViewData["Title"]); }
+</div>
 
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript">
@@ -19,7 +40,7 @@
         var twoDaysFromNow = @Model.NextLaunch.LaunchDate.ToUnixTimeSeconds();
 
         // Set up FlipDown
-        var flipdown = new FlipDown(twoDaysFromNow)
+        new FlipDown(twoDaysFromNow)
 
             // Start the countdown
             .start()
